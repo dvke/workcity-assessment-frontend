@@ -2,8 +2,8 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 import HomePage from "./pages/HomePage";
-// import LoginPage from "./pages/LoginPage";
-// import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 
 const AppRouter = () => {
   const [route, setRoute] = useState(["home"]);
@@ -16,8 +16,8 @@ const AppRouter = () => {
   const renderPage = () => {
     const [page, id] = route;
 
-    // if (page === "login") return <LoginPage navigate={navigate} />;
-    // if (page === "signup") return <SignupPage navigate={navigate} />;
+    if (page === "login") return <LoginPage navigate={navigate} />;
+    if (page === "signup") return <SignupPage navigate={navigate} />;
 
     return (
       <PrivateRoute>

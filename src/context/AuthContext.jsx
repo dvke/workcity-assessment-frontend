@@ -19,10 +19,15 @@ const AuthProvider = ({ children }) => {
     if (token) {
       try {
         const decoded = jwtDecode(token);
+        console.log("Decoded JWT:", decoded);
         if (decoded.exp * 1000 < Date.now()) {
           logout();
         } else {
-          setUser({ id: decoded.id, role: decoded.role }); // Assuming role is in token
+          setUser({
+            id: decoded.id,
+            name: decoded.name, // <-- add this line
+            role: decoded.role,
+          });
           api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         }
       } catch (error) {
@@ -38,7 +43,11 @@ const AuthProvider = ({ children }) => {
     const { token } = response.data;
     localStorage.setItem("token", token);
     const decoded = jwtDecode(token);
-    setUser({ id: decoded.id, role: decoded.role });
+    setUser({
+      id: decoded.id,
+      name: decoded.name, // <-- add this line
+      role: decoded.role,
+    });
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     return response;
   };
@@ -53,7 +62,11 @@ const AuthProvider = ({ children }) => {
     const { token } = response.data;
     localStorage.setItem("token", token);
     const decoded = jwtDecode(token);
-    setUser({ id: decoded.id, role: decoded.role });
+    setUser({
+      id: decoded.id,
+      name: decoded.name, // <-- add this line
+      role: decoded.role,
+    });
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     return response;
   };
