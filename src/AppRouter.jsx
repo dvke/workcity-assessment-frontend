@@ -7,6 +7,8 @@ import SignupPage from "./pages/SignupPage";
 import ClientDashboard from "./pages/ClientDashboard";
 import ClientProfileView from "./pages/ClientProfileView";
 import ClientForm from "./pages/ClientForm";
+import ProjectDashboard from "./pages/ProjectDashboard";
+import ProjectForm from "./pages/ProjectForm";
 
 const AppRouter = () => {
   const [route, setRoute] = useState(["home"]);
@@ -36,12 +38,12 @@ const AppRouter = () => {
               return <ClientForm navigate={navigate} clientId={id} />;
             case "clients/view":
               return <ClientProfileView navigate={navigate} clientId={id} />;
-            // case "projects":
-            //   return <ProjectDashboard navigate={navigate} />;
-            // case "projects/new":
-            //   return <ProjectForm navigate={navigate} />;
-            // case "projects/edit":
-            //   return <ProjectForm navigate={navigate} projectId={id} />;
+            case "projects":
+              return <ProjectDashboard navigate={navigate} />;
+            case "projects/new":
+              return <ProjectForm navigate={navigate} />;
+            case "projects/edit":
+              return <ProjectForm navigate={navigate} projectId={id} />;
             default:
               return <HomePage navigate={navigate} />;
           }
