@@ -1,16 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import AppRouter from "./AppRouter";
+import AuthProvider from "./context/AuthContext";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline text-blue-500">
-        Hello World
-      </h1>
-    </>
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>
   );
 }
-
-export default App;
