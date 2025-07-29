@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        console.log("Decoded JWT:", decoded);
         if (decoded.exp * 1000 < Date.now()) {
           logout();
         } else {

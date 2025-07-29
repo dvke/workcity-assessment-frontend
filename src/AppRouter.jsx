@@ -4,6 +4,9 @@ import PrivateRoute from "./components/PrivateRoute";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import ClientDashboard from "./pages/ClientDashboard";
+import ClientProfileView from "./pages/ClientProfileView";
+import ClientForm from "./pages/ClientForm";
 
 const AppRouter = () => {
   const [route, setRoute] = useState(["home"]);
@@ -25,14 +28,14 @@ const AppRouter = () => {
           switch (page) {
             case "home":
               return <HomePage navigate={navigate} />;
-            // case "clients":
-            //   return <ClientDashboard navigate={navigate} />;
-            // case "clients/new":
-            //   return <ClientForm navigate={navigate} />;
-            // case "clients/edit":
-            //   return <ClientForm navigate={navigate} clientId={id} />;
-            // case "clients/view":
-            //   return <ClientProfileView navigate={navigate} clientId={id} />;
+            case "clients":
+              return <ClientDashboard navigate={navigate} />;
+            case "clients/new":
+              return <ClientForm navigate={navigate} />;
+            case "clients/edit":
+              return <ClientForm navigate={navigate} clientId={id} />;
+            case "clients/view":
+              return <ClientProfileView navigate={navigate} clientId={id} />;
             // case "projects":
             //   return <ProjectDashboard navigate={navigate} />;
             // case "projects/new":
